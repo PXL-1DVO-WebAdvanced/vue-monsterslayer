@@ -13,7 +13,7 @@
         </div>
     </section>
     <section id="controls">
-        <button>ATTACK</button>
+        <button @click="attackMonster()">ATTACK</button>
         <button>SPECIAL ATTACK</button>
         <button>HEAL</button>
         <button>SURRENDER</button>
@@ -26,7 +26,32 @@
 </template>
 <script>
 export default {
-  
+  data() {
+    return {
+      playerHealth: 100,
+      monsterHealth: 100
+    }
+  },
+  methods: {
+    attackMonster() {
+      let damage = this.getRandomNumber(5,12);
+      this.monsterHealth -= damage;
+      this.attackPlayer();
+    },
+    attackPlayer() {
+      let damage = this.getRandomNumber(8,15);
+      this.playerHealth -= damage;
+    }
+    getRandomNumber(min, max) {
+      // Validate input
+      if (min >= max) {
+        throw new Error("Min value must be less than max value");
+      }
+
+      // Generate random number
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+  }
 }
 </script>
 <style lang="scss">
