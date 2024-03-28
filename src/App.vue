@@ -3,20 +3,20 @@
     <section id="monster" class="container">
         <h2>Monster Health</h2>
         <div class="healthbar">
-            <div class="healthbar__value"></div>
+            <div class="healthbar__value" :style="monsterBarStyles"></div>
         </div>
     </section>
     <section id="player" class="container">
         <h2>Your Health</h2>
         <div class="healthbar">
-            <div class="healthbar__value"></div>
+            <div class="healthbar__value" :style="playerBarStyles"></div>
         </div>
     </section>
     <section id="controls">
         <button @click="attackMonster()">ATTACK</button>
-        <button>SPECIAL ATTACK</button>
-        <button>HEAL</button>
-        <button>SURRENDER</button>
+        <button @click="specialAttackMonster()" :disabled="!mayUseSpecialAttack">SPECIAL ATTACK</button>
+        <button @click="healPlayer()">HEAL</button>
+        <button @click="surrender()">SURRENDER</button>
     </section>
     <section id="log" class="container">
         <h2>Battle Log</h2>
@@ -29,10 +29,35 @@ export default {
   data() {
     return {
       playerHealth: 100,
-      monsterHealth: 100
+      monsterHealth: 100,
+      currentRound: 0
+    }
+  },
+  computed: {
+    monsterBarStyles() {
+      let width = this.monsterHealth;
+      if(width < 0)
+        width = 0;
+
+      return `width: ${width}%`; 
+    },
+    playerBarStyles() {
+      let width = this.playerHealth;
+      if(width < 0)
+        width = 0;
+
+      return `width: ${width}%`; 
+    },
+    mayUseSpecialAttack() {
+      return this.currentRound > 0 && this.currentRound % 3 == 0
     }
   },
   methods: {
+    specialAttackMonster() {
+      let damage = this.getRandomNumber(10,25);
+      this.monsterHealth -= damage;
+      this.attackPlayer();
+    },
     attackMonster() {
       let damage = this.getRandomNumber(5,12);
       this.monsterHealth -= damage;
@@ -41,7 +66,18 @@ export default {
     attackPlayer() {
       let damage = this.getRandomNumber(8,15);
       this.playerHealth -= damage;
-    }
+      this.currentRound++;
+    },
+    healPlayer() {
+      let heal = this.getRandomNumber(8,20);
+      this.playerHealth += heal;
+      if(this.playerHealth > 100)
+        this.playerHealth = 100;
+      this.attackPlayer();
+    },
+    surrender() {
+      alert('Developers never surrender. They debug!');
+    },
     getRandomNumber(min, max) {
       // Validate input
       if (min >= max) {
