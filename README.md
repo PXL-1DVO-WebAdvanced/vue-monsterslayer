@@ -1,6 +1,4 @@
 # Vue.js - Monster Slayer
-*Met dank aan de creativiteit van Robin Braibant voor deze opgave* :-)
-
 ![Monster Slayer](assets/monsterslayer.png)
 
 ## Deel 1
