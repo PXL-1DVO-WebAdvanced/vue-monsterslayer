@@ -3,7 +3,6 @@
 
 ## Deel 1
 
-
 In dit labo ga je een simpele game (Monster Slayer) bouwen met de aangeleerde functionaliteiten binnen Vue.js!
 
 Gebruik de HTML- en Sass-code uit de templates-folder. De logica, de scriptcode dus, dient nog volledig opgebouwd te worden.
@@ -90,8 +89,6 @@ Het probleem dat zich nu stelt is dat de health van een speler nu de 100 kan ove
 ##### Event
 Zorg ervoor dat wanneer je op de Heal knop klikt, de juiste methode wordt aangesproken.
 
+## Deel 3
 
-
-
-
-
+Wees creatief en vervolledig de game zodat de winnaar getoond wordt nadat de health van één van de spelers 0 of lager is. Zorg ook dat de surrender knop functioneel wordt.
