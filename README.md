@@ -1,7 +1,10 @@
 # Vue.js - Monster Slayer
 *Met dank aan de creativiteit van Robin Braibant voor deze opgave* :-)
 
+![Monster Slayer](assets/monsterslayer.png)
+
 ## Deel 1
+
 
 In dit labo ga je een simpele game (Monster Slayer) bouwen met de aangeleerde functionaliteiten binnen Vue.js!
 
