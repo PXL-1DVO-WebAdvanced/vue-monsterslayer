@@ -90,5 +90,21 @@ Het probleem dat zich nu stelt is dat de health van een speler nu de 100 kan ove
 Zorg ervoor dat wanneer je op de Heal knop klikt, de juiste methode wordt aangesproken.
 
 ## Deel 3
+Veplaats zowel de inhoud, de logica als de opmaak van de health bar nu naar een nieuw component HealthBarComponent. Zorg dat de naam van de speler en de health-waarde (*hp*) via een attribuut kunnen worden doorgegeven aan het component. 
+
+## Deel 4
+#### Battle Log
+Maak een *battlelog*-array die de geschiedenis toont van alle aanvallen tijdens een spel. Toon een aanval bijvoorbeeld als volgt:
+
+- MONSTER HIT THE PLAYER FOR 12 DAMAGE
+- PLAYER NAILED THE MONSTER FOR 15 DAMAGE *(special attack)*
+- MONSTER HIT THE PLAYER FOR 5 DAMAGE
+- PLAYER HIT THE MONSTER FOR 11 DAMAGE
+
+Toon de laatst toegevoegde log steeds bovenaan. Denk ook aan de *heal*-functie.
+
+## Deel 5
 
 Wees creatief en vervolledig de game zodat de winnaar getoond wordt nadat de health van één van de spelers 0 of lager is. Zorg ook dat de surrender knop functioneel wordt.
+
+Voeg ook een *New game*-knop toe die beschikbaar wordt nadat een winnaar bekend gemaakt werd.
